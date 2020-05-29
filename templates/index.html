@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title> Fashion Item Prediction </title>
+    <link rel="stylesheet" type="text/css" href="\static\css\style.css">   
+</head>
+    <body>
+        <div class="login-box">
+            <img src="\static\images\shop.png" class="avatar">
+                <h1>Code With Tushar present Fashion Item Prediction</h1>
+                    <form action="{{url_for('predict')}}" method = "post" enctype="multipart/form-data">
+                    <p>Upload a photo less than 10 MB in fashion category with only png, jpg or jpeg extension and know about what is this with fashion Tag? </p>
+                    <br>
+                    <br>
+                    <hr>
+                    <div class = "form-input">
+                    <label for="file_id">Upload Image</label>
+                    <input type="file" name="file" id="file_id" accept=".png, .jpg, .jpeg" accept="image/*" onchange="showPreview(event);">
+                    <div class="preview">
+                        <img id="file-ip-1-preview">
+                      </div>
+                    </div>
+                    <hr>
+                  
+                    <input type="submit" value="Predict Fashion TAG or ITEM"> 
+                    </form>
+                 <h1>{{Prediction_text}}</h1>
+                </div>
+                    <script >
+                      function showPreview(event){
+    if(event.target.files.length > 0){
+      var src = URL.createObjectURL(event.target.files[0]);
+      var preview = document.getElementById("file-ip-1-preview");
+      preview.src = src;
+      preview.style.display = "block";
+    }
+  }
+ </script>          
+    </body>
+</html>
